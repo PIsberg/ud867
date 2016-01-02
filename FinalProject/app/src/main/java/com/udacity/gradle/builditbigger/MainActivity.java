@@ -7,12 +7,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.udacity.isberg.joke_android_lib.JokeAndroidProvider;
+
 
 public class MainActivity extends ActionBarActivity {
+
+    private JokeAndroidProvider jokeAndroidProvider;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        jokeAndroidProvider = new JokeAndroidProvider();
         setContentView(R.layout.activity_main);
     }
 
@@ -40,7 +45,11 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void tellJoke(View view){
-        Toast.makeText(this, "derp", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, jokeAndroidProvider.getJoke(), Toast.LENGTH_SHORT).show();
+
+        //Toast.makeText(this, "derp", Toast.LENGTH_SHORT).show();
+
+
     }
 
 
